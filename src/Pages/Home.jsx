@@ -38,6 +38,33 @@ const Home = () => {
         })
     })
 
+
+    useGSAP(()=>{
+        let tl=gsap.timeline();
+
+        gsap.from("#service",{
+            opacity:0,
+            scrollTrigger:{
+                trigger:"#service",
+                start:"top 40%",
+                toggleActions: "play reverse play reverse",
+            }
+        })
+
+        gsap.from(".points",{
+           x:-200,
+           opacity:0,
+           stagger:0.66,
+           scrollTrigger:{
+            trigger:"#aad",
+            start:"top 40%",
+              toggleActions: "play reverse play reverse",
+           }
+        })
+         
+        
+    })
+
    
 
 
@@ -57,7 +84,7 @@ const Home = () => {
                 <section className='absolute w-full h-full bg-black/40 flex flex-col md:flex-row-reverse min-h-fit '>
                     <div className='md:h-full h-[70%] md:w-[70%] w-full flex  min-h-fit'>
                         <div className='sm:w-full w-screen h-full  flex flex-col items-center justify-center  gap-6 '>
-                            <h1 className='text-white lg:text-8xl  md:text-6xl text-5xl h1'>NOW DRIVE YOUR <br /> <span className='text-yellow-400 '>DREAM</span> CAR</h1>
+                            <h1 className='text-white text-[clamp(3rem,5vw,12rem)] h1'>NOW DRIVE YOUR <br /> <span className='text-yellow-400 '>DREAM</span> CAR</h1>
                             <button className="relative overflow-hidden px-6 py-2 h-12 w-44 border text-white group">
 
                                 <span className="relative z-10 group-hover:text-black transition-colors duration-300">
@@ -70,33 +97,33 @@ const Home = () => {
                         </div>
                     </div>
                     <div className='md:h-[100vh] h-[30%] md:w-[30%]  w-full flex  max-md:justify-center items-end pb-30  min-w-fit border-white '>
-                        <h1 className='text-white md:px-40 text-2xl max-md:text-c text-nowrap'>PREMIUM DETAILING OF <br /> EVERY CAR</h1>
+                        <h1 className='text-white md:px-40 text-[clamp(1.5rem,5vw,2rem)] text-nowrap'>PREMIUM DETAILING OF <br /> EVERY CAR</h1>
                     </div>
                 </section>
             </main>
 
             <AboutusComp/>
 
-            <article className='h-[100vh] gap-8 w-full bg-white flex flex-col justify-center items-center min-h-fit'>
+            <article className='h-[100vh] gap-8 w-full bg-white flex flex-col justify-center items-center min-h-fit' id='service'>
                 <h1 className='font-serif'>Our Services</h1>
                 <h3 className='text-4xl  font-bold text-center'>EXPLORE OUR WIDE RANGE <br /> OF RENTAL Services</h3>
                 <div className='h-[30%] w-[80%] flex justify-between md:mt-20 mt-5 flex-wrap  min-h-fit gap-4'>
-                    <div className='flex h-[50%] md:w-[18%] w-[40%] rounded-md shadow-md p-4 flex-col border gap-4 border-gray-400 hover:scale-110 duration-150 shrink-0'>
+                    <div className='flex  rounded-md shadow- aspect-[8/1] p-4 flex-col border gap-4 border-gray-400 hover:scale-110 duration-150 shrink-0'>
                         <img src={P1} alt="" className='h-12 w-12' />
                         <h2 className='font-serif font-semibold'>Car Rental With Driver</h2>
                         <p className='font-light text-[15px]'>Enhance your rental experience <br /> with additional options</p>
                     </div>
-                    <div className='flex h-[50%] md:w-[18%] w-[40%] rounded-md shadow-md p-4 flex-col border gap-4 border-gray-400 shrink-0'>
+                    <div className='flex  rounded-md shadow-md aspect-[8/1] p-4 flex-col border gap-4 border-gray-400 shrink-0 hover:scale-110'>
                         <img src={P2} alt="" className='h-12 w-12' />
                         <h2 className='font-serif font-semibold'>Business Car Rental</h2>
                         <p className='font-light text-[15px]'>Enhance your rental experience <br /> with additional options</p>
                     </div>
-                    <div className='flex h-[50%] md:w-[18%] w-[40%] rounded-md shadow-md p-4 flex-col border gap-4 border-gray-400 shrink-0'>
+                    <div className='flex  rounded-md shadow-md aspect-[8/1] p-4 flex-col border gap-4 border-gray-400 shrink-0 hover:scale-110 '>
                         <img src={P3} alt="" className='h-12 w-12' />
                         <h2 className='font-serif font-semibold'>Airport Transfer</h2>
                         <p className='font-light text-[15px]'>Enhance your rental experience <br /> with additional options</p>
                     </div>
-                    <div className='flex h-[50%] md:w-[18%] w-[40%] rounded-md shadow-md p-4 flex-col border gap-4 border-gray-400 shrink-0'>
+                    <div className='flex  rounded-md shadow-md  p-4 flex-col border gap-4 border-gray-400 shrink-0 hover:scale-110'>
                         <img src={P4} alt="" className='h-12 w-12' />
                         <h2 className='font-serif font-semibold'>Chauffeur Services</h2>
                         <p className='font-light text-[15px]'>Enhance your rental experience <br /> with additional options</p>
@@ -105,88 +132,88 @@ const Home = () => {
                 <p className='font-serif text-[18px]'>Discover our range of car rental services designed to meet all your <br /> travel needs.From a diverse fleet of vechiles to flexible rental plans.</p>
                 <button className='bg-black px-6 text-white rounded-md shadow-md py-2'>View All Services</button>
             </article>
-            <article className='h-[60vh] bg-white flex items-center p-2 justify-between gap-2 '>
-                <div className='h-[90%] w-[23%]  rounded-lg bg-cover bg-center bg-no-repeat p-4' style={{ backgroundImage: `url(${BG1})` }}>
+            <article className='h-[60vh] bg-white flex items-center p-2 justify-between gap-2  flex-wrap min-h-fit max-md:mt-6'>
+                <div className=' h-[60%] w-[40%] sm:h-[65%] sm:w-[45%] md:h-[90%] md:w-[23%] rounded-lg bg-cover bg-center bg-no-repeat p-4 shrink-0' style={{ backgroundImage: `url(${BG1})` }}>
                     <h1 className='text-white text-2xl'>SPORTS CAR</h1>
                 </div>
-                <div className='h-[90%] w-[23%]  rounded-lg bg-cover bg-center bg-no-repeat p-4' style={{ backgroundImage: `url(${BG2})` }}>
+                <div className='h-[60%] w-[40%] sm:h-[65%] sm:w-[45%] md:h-[90%] md:w-[23%] rounded-lg bg-cover bg-center bg-no-repeat p-4 shrink-0' style={{ backgroundImage: `url(${BG2})` }}>
                     <h1 className='text-white text-2xl'>CONVERTIBLE CAR</h1>
                 </div>
-                <div className='h-[90%] w-[23%]  rounded-lg bg-cover bg-center bg-no-repeat p-4' style={{ backgroundImage: `url(${BG3})` }}>
+                <div className='h-[60%] w-[40%] sm:h-[65%] sm:w-[45%] md:h-[90%] md:w-[23%]  rounded-lg bg-cover bg-center bg-no-repeat p-4 shrink-0' style={{ backgroundImage: `url(${BG3})` }}>
                     <h1 className='text-white text-2xl'>SEDAN CAR</h1>
                 </div>
-                <div className='h-[90%] w-[23%]  rounded-lg bg-cover bg-center bg-no-repeat  p-4' style={{ backgroundImage: `url(${BG4})` }}>
+                <div className='h-[60%] w-[40%] sm:h-[65%] sm:w-[45%] md:h-[90%] md:w-[23%]  rounded-lg bg-cover bg-center bg-no-repeat  p-4 shrink-0' style={{ backgroundImage: `url(${BG4})` }}>
                     <h1 className='text-white text-2xl'>LUXURY CAR</h1>
                 </div>
             </article>
 
-            <article className='h-[10vh] w-full bg-yellow-400 flex items-center gap-5 overflow-hidden'>
+            <article className='h-[10vh] w-full bg-yellow-400 flex items-center gap-5 overflow-hidden '>
                 <div className='flex gap-4 slide'>
                     <div className='flex items-center gap-2 shrink-0 '>
-                        <h1 className=' font-semibold text-2xl'>Premium Car Care</h1>
+                        <h1 className=' font-semibold text-2xl text-[clamp(0.9rem,2.6vw,1.4rem)]'>Premium Car Care</h1>
                         <img src={Arrow} alt="" className='h-11 arrow' />
                     </div>
                     <div className='flex items-center gap-2 shrink-0 '>
-                        <h1 className=' font-semibold text-2xl '>Premium Car Care</h1>
+                        <h1 className=' font-semibold text-2xl text-[clamp(0.9rem,2.6vw,1.4rem)]'>Premium Car Care</h1>
                         <img src={Arrow} alt="" className='h-11 arrow' />
                     </div>
                     <div className='flex items-center gap-2 shrink-0 '>
-                        <h1 className=' font-semibold text-2xl'>Premium Car Care</h1>
+                        <h1 className=' font-semibold text-[clamp(0.9rem,2.6vw,1.4rem)]'>Premium Car Care</h1>
                         <img src={Arrow} alt="" className='h-11 arrow' />
                     </div>
                     <div className='flex items-center gap-2 shrink-0 '>
-                        <h1 className=' font-semibold text-2xl'>Premium Car Care</h1>
+                        <h1 className=' font-semibold text-[clamp(0.9rem,2.6vw,1.4rem)]'>Premium Car Care</h1>
                         <img src={Arrow} alt="" className='h-11 arrow' />
                     </div>
                     <div className='flex items-center gap-2 shrink-0 '>
-                        <h1 className=' font-semibold text-2xl'>Premium Car Care</h1>
+                        <h1 className=' font-semibold text-[clamp(0.9rem,2.6vw,1.4rem)]'>Premium Car Care</h1>
                         <img src={Arrow} alt="" className='h-11 arrow' />
                     </div>
                     <div className='flex items-center gap-2 shrink-0 '>
-                        <h1 className=' font-semibold text-2xl'>Premium Car Care</h1>
+                        <h1 className=' font-semibold text-[clamp(0.9rem,2.6vw,1.4rem)]'>Premium Car Care</h1>
                         <img src={Arrow} alt="" className='h-11 arrow' />
                     </div>
                     <div className='flex items-center gap-2 shrink-0 '>
-                        <h1 className=' font-semibold text-2xl'>Premium Car Care</h1>
+                        <h1 className=' font-semibold text-[clamp(0.9rem,2.6vw,1.4rem)]'>Premium Car Care</h1>
                         <img src={Arrow} alt="" className='h-11 arrow' />
                     </div>
                     <div className='flex items-center gap-2 shrink-0 '>
-                        <h1 className=' font-semibold text-2xl'>Premium Car Care</h1>
+                        <h1 className=' font-semibold text-[clamp(0.9rem,2.6vw,1.4rem)]'>Premium Car Care</h1>
                         <img src={Arrow} alt="" className='h-11 arrow' />
                     </div>
                 </div>
             </article>
 
-            <article className='h-[80vh]  bg-white flex pt-20'>
-                <section className='h-full w-[50%]  flex flex-col px-30 py-20 gap-3'>
-                    <p className='roboto font-bold'>How it Work</p>
-                    <h2 className='roboto text-3xl font-bold'>STREAMLINED PROCESSED FOR A <br /> HASSLE-FREE EXPERIENCE</h2>
-                    <p className='roboto text-gray-400 text-[13px]'>our Streamlined process ensures a seamless car rental <br />experience from start to finish.With easy online booking,flexible <br />pick-up and drop-off options.</p>
-                    <div className='flex justify-between items-center w-[80%] border-b pb-2 text-2xl font-semibold mt-8'><p>1.BROWSE AND SELECT</p> <IoIosArrowRoundForward /></div>
-                    <div className='flex justify-between items-center w-[80%] border-b pb-2 text-2xl font-semibold'><p>2.BOOK AND CONFIRM</p> <IoIosArrowRoundForward /></div>
-                    <div className='flex justify-between items-center w-[80%] border-b pb-2 text-2xl font-semibold'><p>3.BOOK AND ENJOY</p> <IoIosArrowRoundForward /></div>
+            <article className='h-[80vh]  bg-white flex md:pt-20 md:flex-row flex-col-reverse min-h-fit'>
+                <section className='h-full md:w-[50%] w-full  flex flex-col md:px-30 px-15 py-10 md:py-20 gap-3 min-h-fit' id='aad'>
+                    <p className='roboto font-bold text-[clamp(12px,2vw,17px)]'>How it Work</p>
+                    <h2 className='roboto text-[clamp(1.5rem,3vw,2rem)] font-bold'>STREAMLINED PROCESSED FOR A <br /> HASSLE-FREE EXPERIENCE</h2>
+                    <p className='roboto text-gray-400  text-[clamp(12px,2vw,18px)]'>our Streamlined process ensures a seamless car rental <br />experience from start to finish.With easy online booking,flexible <br />pick-up and drop-off options.</p>
+                    <div className='flex justify-between items-center w-[80%] border-b pb-2 text-[clamp(15px,4vw,22px)] font-semibold mt-8 points'><p>1.BROWSE AND SELECT</p> <IoIosArrowRoundForward /></div>
+                    <div className='flex justify-between items-center w-[80%] border-b pb-2 text-[clamp(15px,4vw,22px)] font-semibold points'><p>2.BOOK AND CONFIRM</p> <IoIosArrowRoundForward /></div>
+                    <div className='flex justify-between items-center w-[80%] border-b pb-2 text-[clamp(15px,4vw,22px)] font-semibold points'><p>3.BOOK AND ENJOY</p> <IoIosArrowRoundForward /></div>
                 </section>
-                <section className='flex items-center justify-center w-[50%] h-full'>
-                    <img src={Driver} alt="" className='h-[80%] rounded-full' />
+                <section className='flex items-center justify-center md:w-[50%] w-full md:h-full h-[40%]' id='Driver'>
+                    <img src={Driver} alt="" className='h-[80%] md:rounded-full'  />
 
                 </section>
             </article>
 
-            <article className='h-[80vh] bg-black flex flex-col'>
-                <section className='h-[40%] text-white w-full flex items-center justify-evenly'>
+            <article className='h-[80vh] bg-black flex flex-col min-h-fit'>
+                <section className='h-[40%] text-white w-full flex items-center md:flex-row flex-col justify-evenly min-h-fit'>
                     <span className='flex flex-col gap-2'>
-                        <p className='text-[15px]'>WELCOME TO DRIVEX</p>
-                        <h2 className='text-3xl'>THE ULTIMATE DRIVING EXPERIENCE</h2>
+                        <p className='text-[clamp(11px,2vw,19px)]'>WELCOME TO DRIVEX</p>
+                        <h2 className='text-[clamp(15px,4vw,22px)] '>THE ULTIMATE DRIVING EXPERIENCE</h2>
                     </span>
-                    <span className='flex flex-col gap-3'>
-                        <p className='text-[15px] opacity-40'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas molestiae nemo unde aliquid  <br />libero at recusandae reiciendis deserunt dicta? Provident dolores nostrum <br /> excepturi consectetur amet aspernatur maiores quia quo laboriosam id. Reiciendis id quo eaque odio esse delectus natus suscipit.</p>
-                        <button className='px-4 py-2 border w-40 border-white'>READ MORE</button>
+                    <span className='flex flex-col gap-3 md:items-start items-center min-h-fit'>
+                        <p className=' opacity-40 text-[clamp(11px,2vw,19px)] md:text-start text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas molestiae nemo unde aliquid  <br />libero at recusandae reiciendis deserunt dicta? Provident dolores nostrum <br /> excepturi consectetur amet aspernatur maiores quia quo laboriosam id. Reiciendis id quo eaque odio esse delectus natus suscipit.</p>
+                        <button className='px-4 py-2 border w-40 border-white text-[clamp(11px,2vw,19px)]'>READ MORE</button>
                     </span>
                 </section>
-                <section className='h-[60%] w-full flex items-center gap-3 justify-center'>
-                    <div className='overflow-hidden'> <img src={C1} alt="" className='h-80 hover:scale-150 overflow-hidden transition-all duration-300' /></div>
-                    <div className='overflow-hidden'><img src={C2} alt="" className='h-80 hover:scale-150 overflow-hidden transition-all duration-300' /></div>
-                    <div className='overflow-hidden'><img src={C3} alt="" className='h-80 hover:scale-150 overflow-hidden transition-all duration-300' /></div>
+                <section className='h-[60%] w-full flex items-center gap-3 justify-center min-h-fit'>
+                    <div className='overflow-hidden'> <img src={C1} alt="" className='h-40 sm:h-60 md:h-80 hover:scale-150 overflow-hidden transition-all duration-300' /></div>
+                    <div className='overflow-hidden'><img src={C2} alt="" className='h-40 sm:h-60 md:h-80 hover:scale-150 overflow-hidden transition-all duration-300' /></div>
+                    <div className='overflow-hidden'><img src={C3} alt="" className='h-40 sm:h-60 md:h-80 hover:scale-150 overflow-hidden transition-all duration-300' /></div>
                 </section>
             </article>
 
